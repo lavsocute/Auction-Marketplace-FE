@@ -1,42 +1,69 @@
 <div
-    class="bg-zinc-800 w-full max-w-sm overflow-hidden group border border-transparent transition-all duration-300 hover:border-orange-500 hover:shadow-neon relative">
-    <!-- Image Container -->
-    <div class="relative h-64 w-full bg-zinc-900">
-        <img src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?q=80&w=800&auto=format&fit=crop"
-            alt="Premium Watch"
-            class="object-cover w-full h-full opacity-90 group-hover:opacity-100 transition-opacity duration-300">
-        <!-- Live Indicator -->
+    class="bg-[#12161E] rounded w-full h-full relative cursor-pointer group border border-transparent hover:border-[#00D2FF] hover:bg-[#1A1F2A] transition-all duration-300">
+    <!-- Glowing Background Effect -->
+    <div
+        class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,210,255,0.08)_0%,transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+    </div>
+
+    <!-- Top Info Row -->
+    <div class="p-3 pb-0 flex justify-between items-start z-10 relative">
+        <div class="flex flex-col">
+            <span class="text-[#8E98A5] text-[10px] uppercase font-bold tracking-wider">ROLEX</span>
+            <span class="text-white text-sm font-semibold truncate max-w-[120px]">Submariner Date</span>
+        </div>
+        <!-- Condition / Rarity Badge -->
         <div
-            class="absolute top-4 left-4 flex items-center gap-2 bg-black/60 backdrop-blur-md px-3 py-1 text-xs font-bold uppercase tracking-wider text-white">
-            <span class="relative flex h-3 w-3">
+            class="text-[#FF5900] text-[10px] font-bold border border-[#FF5900]/30 bg-[#FF5900]/10 px-1.5 py-0.5 rounded-sm">
+            MINT
+        </div>
+    </div>
+
+    <!-- 3D Image Area -->
+    <div class="relative h-32 w-full flex items-center justify-center p-2 z-10">
+        <img src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?q=80&w=400&auto=format&fit=crop"
+            alt="Item"
+            class="object-contain h-full w-auto drop-shadow-[0_10px_15px_rgba(0,0,0,0.8)] filter transition-transform duration-300 group-hover:scale-110">
+
+        <!-- Live Ping -->
+        <div class="absolute bottom-2 left-3 flex items-center gap-1.5">
+            <span class="relative flex h-2 w-2">
                 <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75"></span>
-                <span class="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
             </span>
-            LIVE
+            <span class="text-[9px] text-red-500 font-bold uppercase tracking-widest">Live</span>
         </div>
     </div>
 
-    <!-- Content -->
-    <div class="p-5 flex flex-col gap-4">
-        <!-- Title -->
-        <h3 class="text-zinc-50 font-display text-xl tracking-wide uppercase">Rolex Submariner</h3>
-
-        <!-- Timer & Price -->
-        <div class="flex flex-col items-center justify-center py-4 border-y border-zinc-700/50 bg-black/20">
-            <div class="text-red-500 font-display text-4xl font-bold tracking-widest animate-pulse mb-1">
-                ⏳ 00:15:42
-            </div>
-            <div
-                class="text-zinc-400 text-sm tracking-wide uppercase flex items-center gap-2 text-center w-full justify-center">
-                Current Bid: <span
-                    class="text-orange-500 font-bold text-lg tabular-nums transform group-hover:scale-110 transition-transform origin-left">250,000,000₫</span>
-            </div>
-        </div>
+    <!-- Thin Progress Bar (Timer) -->
+    <div class="w-full h-[2px] bg-[#1A1F2A] relative overflow-hidden z-10">
+        <!-- Width calculates dynamically based on remaining time -->
+        <div class="absolute top-0 left-0 h-full bg-[#00D2FF] w-[35%] shadow-[0_0_5px_rgba(0,210,255,1)]"></div>
     </div>
 
-    <!-- Action Button -->
-    <button
-        class="w-full bg-orange-500 text-white font-display text-xl uppercase tracking-widest py-4 transition-colors hover:bg-orange-400 focus:outline-none focus:ring-2 focus:ring-orange-500/50">
-        Place Bid
-    </button>
+    <!-- Data & Action Bottom -->
+    <div class="p-3 pt-2 grid grid-cols-[1fr_auto] items-end gap-2 z-10 relative mt-1">
+
+        <!-- Price -->
+        <div class="flex flex-col">
+            <div class="text-[#8E98A5] text-[10px] flex items-center gap-1 mb-0.5">
+                <span><svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg></span>
+                00:15:42
+            </div>
+            <!-- Tabular nums helps numbers line up perfectly to prevent jittering -->
+            <div class="text-[#E9DF41] font-display font-bold text-lg leading-none tabular-nums truncate">
+                {{ 250000000 | currency:'VND':'symbol' }}
+            </div>
+        </div>
+
+        <!-- Small Action Button -->
+        <button
+            class="bg-gradient-to-r from-[#5B42F3] to-[#00D2FF] text-white text-[11px] font-bold px-3 py-1.5 rounded-sm hover:shadow-[0_0_10px_rgba(0,210,255,0.4)] transition-all">
+            BID
+        </button>
+    </div>
+
 </div>
